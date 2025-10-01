@@ -112,9 +112,15 @@ pip install -r requirements.txt
    - All plots are generated in the notebooks
    - Time series, scatter plots, correlations
 
-3. **Read the report:**
-   - Open `reports/final_report.md`
-   - Fill in the findings based on your analysis
+3. **Read the final report:**
+   - Use either `reports/final_report_completed.md` (Markdown) or `reports/final_report_completed.ipynb` (Notebook, Markdown cells) for your final report.
+    - If you need to generate or update the report, run:
+       ```bash
+       python generate_report.py
+       ```
+    - This will create or update both report files in the `reports/` directory: one as Markdown (`final_report_completed.md`) and one as a Jupyter Notebook (`final_report_completed.ipynb`).
+    - The `.ipynb` version is ideal for sharing or further editing in Jupyter, while the `.md` version is easy to view or print as plain text. Both contain the same content.
+    - (The old `reports/final_report.md` is a template only.)
 
 ## Expected Runtime
 

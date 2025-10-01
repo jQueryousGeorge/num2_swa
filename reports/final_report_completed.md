@@ -14,11 +14,11 @@ This analysis examines the relationship between Southwest Airlines' load factor 
 1. **Overall Correlation**: The analysis reveals a **very strong negative correlation** (r = -0.730) between load factor and departure on-time performance across all routes combined. This relationship is **highly significant (p < 0.001)**.
 
 2. **Route-Specific Patterns**: Different routes show varying relationships between load factor and OTP:
-   - **DAL-HOU**: r = -0.787 (significant)
    - **DEN-PHX**: r = -0.704 (significant)
    - **SAN-SMF**: r = -0.745 (significant)
-   - **SAN-SJC**: r = -0.770 (significant)
+   - **DAL-HOU**: r = -0.787 (significant)
    - **BWI-MCO**: r = -0.782 (significant)
+   - **SAN-SJC**: r = -0.770 (significant)
 
 3. **Load Factor Impact**: Analysis across load factor bins shows:
    - Flights with load factors **< 70%**: 88.1% departure OTP
@@ -255,7 +255,7 @@ Monthly analysis reveals typical seasonal patterns:
 
 ### Strategic Recommendations
 
-Based on the analysis, I recommend:
+Based on the analysis, we recommend:
 
 1. **Continue Aggressive Load Factor Optimization**
    - Rationale: The very strong negative correlation indicates load factor has minimal negative impact on OTP
@@ -356,7 +356,7 @@ All visualizations available in executed notebook files.
 
 ---
 
-**Report Generated:** September 30, 2025  
+**Report Generated:** October 01, 2025  
 **Analysis Period:** January 2020 - June 2025  
 **Data Source:** U.S. Bureau of Transportation Statistics  
 **Analysis Tools:** Python, Jupyter Notebooks  

@@ -48,11 +48,31 @@ project/
 │
 ├── reports/
 │   └── final_report.md            # Final analysis report
+│   └── final_report_completed.md   # Auto-generated final report (Markdown)
+│   └── final_report_completed.ipynb # Auto-generated final report (Notebook, Markdown cells)
 │
 ├── requirements.txt               # Python dependencies
-├── README.md                      # This file
+├── README.md                      # Main project documentation: overview, setup usage, troubleshooting and references
+├── project_summary.md             # High-level summary of project structure, data flow, and analysis steps
+├── run_analysis.py                # Script to run the entire analysis pipeline and generate all processed data automatically
 └── .gitignore                     # Git ignore rules
 ```
+
+## Final Report Files
+
+After completing your analysis, you can use either of the following for your final report:
+- `reports/final_report_completed.md` (Markdown file)
+- `reports/final_report_completed.ipynb` (Notebook version with markdown cells)
+
+To generate or update the final report, run:
+
+```bash
+python generate_report.py
+```
+
+This will create or update both report files in the `reports/` directory.
+
+**Tip:** The `.ipynb` version is ideal for sharing or further editing in Jupyter, while the `.md` version is easy to view or print as plain text. Both contain the same content.
 
 ## Data Sources
 
