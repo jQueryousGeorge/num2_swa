@@ -63,7 +63,7 @@ If you prefer working in a code editor instead of the terminal, follow these ste
 
 2. **Create and activate a virtual environment** (in the built-in terminal of your editor):
 
-   ```bash
+```bash
    python -m venv venv
 
    # Windows:
@@ -71,8 +71,9 @@ If you prefer working in a code editor instead of the terminal, follow these ste
 
    # macOS/Linux:
    source venv/bin/activate
-   ```
-3. Install Required Packages:
+```
+
+3. **Install Required Packages**:
 ``` bash
 pip install -r requirements.txt
 ``` 
