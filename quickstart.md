@@ -22,7 +22,7 @@ data/
 │       ├── 2024_Segment.csv
 │       └── 2025_Segment.csv
 │
-└── processed/  (will be created automatically)
+└── processed/  (will be created automatically once you run the notebooks (in order))
 ```
 
 ## Step 2: Set Up Environment
@@ -55,57 +55,56 @@ jupyter notebook
 # 3. notebooks/03_otp_loadfactor_analysis.ipynb
 ```
 
-### Option B: Quick Python Script
+### Option B: Use a Code Editor (e.g., VS Code, PyCharm)
 
-If you want to run everything programmatically, create `run_analysis.py`:
+If you prefer working in a code editor instead of the terminal, follow these steps:
 
-```python
-import sys
-sys.path.append('.')
+1. **Open the project folder** in your preferred code editor (such as **Visual Studio Code**, **PyCharm**, or **JupyterLab**).
 
-from src import DataLoader, DataCleaner, MetricsCalculator
-import pandas as pd
+2. **Create and activate a virtual environment** (in the built-in terminal of your editor):
 
-print("Loading data...")
-loader = DataLoader(base_path='data/raw')
-lf_raw, otp_raw = loader.load_all_data()
+   ```bash
+   python -m venv venv
 
-print("\nCleaning data...")
-cleaner = DataCleaner(carrier_code='WN')
-lf_clean = cleaner.clean_load_factor_data(lf_raw)
-otp_clean = cleaner.clean_otp_data(otp_raw)
+   # Windows:
+   venv\Scripts\activate
 
-print("\nIdentifying top 5 routes...")
-top_5_routes = cleaner.get_top_routes(lf_clean, n=5, metric='PASSENGERS')
+   # macOS/Linux:
+   source venv/bin/activate
+   ```
+3. Install Required Packages:
+``` bash
+pip install -r requirements.txt
+``` 
 
-print("\nFiltering for top routes...")
-lf_top5 = lf_clean[lf_clean['ROUTE'].isin(top_5_routes)]
-otp_top5 = otp_clean[otp_clean['ROUTE'].isin(top_5_routes)]
+4. **Run the notebooks in order inside your editor’s Jupyter environment**:
+- **If using VS Code:**
+   - Install the **Python** and **Jupyter** extensions if prompted.
+   - Open the first notebook:  
+   `notebooks/01_data_exploration.ipynb`
+   - Click **“Run All”** or run the cells one by one.
+   - Continue running the notebooks in order:
+      1. `01_data_exploration.ipynb`
+      2. `02_route_analysis.ipynb`
+      3. `03_otp_loadfactor_analysis.ipynb`
 
-print("\nMerging datasets...")
-calc = MetricsCalculator()
-merged = calc.merge_lf_otp_by_route_month(lf_top5, otp_top5)
+- **If using JupyterLab:**
+   - Launch JupyterLab from the terminal:
+      ``` bash
+         jupyter lab
+      ```
 
-print("\nCalculating correlations...")
-for route in top_5_routes:
-    stats = calc.route_summary_stats(merged, route)
-    if stats:
-        print(f"\n{route}:")
-        print(f"  LF vs Dep OTP: r={stats['corr_lf_dep_ontime']:.3f}, p={stats['corr_lf_dep_pvalue']:.4f}")
-        print(f"  LF vs Arr OTP: r={stats['corr_lf_arr_ontime']:.3f}, p={stats['corr_lf_arr_pvalue']:.4f}")
+- **Open each notebook and run the cells sequentially**
 
-print("\n✓ Analysis complete! Check the notebooks for detailed visualizations.")
-```
+5. **Watch underneath each cell for outputs and review plots as they’re generated**
 
-Then run:
-```bash
-python run_analysis.py
-```
+
 
 ## Step 4: Review Results
 
 1. **Check processed data:**
    - `data/processed/` folder contains cleaned datasets
+      - These files are too large for GitHub, thus they were not already pre-generated.
    - Open CSV files to verify data quality
 
 2. **Review visualizations:**
@@ -191,4 +190,4 @@ filtered = cleaner.filter_date_range(df, start_date='2023-01-01', end_date='2023
 jupyter notebook notebooks/01_data_exploration.ipynb
 ```
 
-Happy analyzing! 🛫📊
+Thanks for reviewing the analysis!

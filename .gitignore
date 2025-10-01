@@ -64,4 +64,8 @@ Thumbs.db
 .DS_Store
 
 # Processed Files (too large for GitHub)
-data/processed/*.csv
+data/processed/lf_clean_southwest.csv
+data/processed/lf_top5_routes.csv
+data/processed/otp_clean_southwest.csv
+data/processed/otp_top5_routes.csv
+data/processed/top5_routes.csv
